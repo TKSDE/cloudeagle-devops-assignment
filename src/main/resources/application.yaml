@@ -4,6 +4,6 @@ spring:
   data:
     mongodb:
       # Inject URI via env variables configured in Secret Manager
-      uri: ${MONGO_URI:mongodb+srv://tekchandkumarsharma_db_user:cjT0yC1YwzwHY5aw@cloudeagle.f4fnmov.mongodb.net/sync-db?appName=CloudEagle}
+      uri: ${MONGO_URI:mongodb://localhost:27017/sync-db}
 server:
   port: 8080
