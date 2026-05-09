@@ -98,3 +98,20 @@ flowchart TD
 **5. Logging & monitoring stack**
 *   *Stack:* Google Cloud Operations Suite (formerly Stackdriver).
 *   *Implementation:* Cloud Run natively integrates with Cloud Logging, capturing all standard out/err logs from the Spring Boot container automatically. We will configure Cloud Monitoring to track standard metrics (CPU, Memory, Request Latency) and set up alerting policies (e.g., slack notification if 5xx errors spike above 1%).
+
+---
+
+## Bonus: Running the Application Locally
+
+While the assignment is primarily an architecture design test, the repository includes a fully functional dummy Spring Boot application with a multi-stage Dockerfile. To test the build locally:
+
+### Using Docker
+1. Build the Docker image:
+   ```bash
+   docker build -t sync-service .
+   ```
+2. Run the container:
+   ```bash
+   docker run -d -p 8080:8080 -e MONGO_URI="your-mongodb-connection-string" --name sync-service-app sync-service
+   ```
+3. Check the application health by navigating your browser to `http://localhost:8080/` or `http://localhost:8080/actuator/health`.
