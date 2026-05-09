@@ -1,8 +1,7 @@
-# Use official Eclipse Temurin image for Java 17
-FROM eclipse-temurin:17-jdk-alpine as builder
+# Use official Maven image to build
+FROM maven:3.9.6-eclipse-temurin-17-alpine AS builder
 WORKDIR /app
 COPY . .
-# We use maven directly if mvnw is missing in this dummy repo
 RUN mvn clean package -DskipTests
 
 # Run stage
